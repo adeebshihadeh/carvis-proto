@@ -1,0 +1,11 @@
+# dependencies
+
+## spotify-remote
+
+https://github.com/chrippa/spotify-remote
+
+`pip install spotify-remote`
+
+## flask
+
+`pip install Flask`

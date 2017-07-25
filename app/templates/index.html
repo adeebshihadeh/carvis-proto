@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <title>carvis</title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/furtive/2.3.0/furtive.min.css">
+  <style type="text/css">
+
+  </style>
+
+</head>
+<body>
+
+<h1>carvis</h1>
+
+<div class="content" style="padding: 10px;">
+
+<button class="btn--green" id="btn-roll-up">roll up</button>
+
+
+<div style="margin-top: 15px;">
+  <button class="btn--gray" id="btn-defrost">defrost</button>
+  <button class="btn--gray" id="btn-max-cool">max cool</button>
+  <button class="btn--red" id="btn-ac-off">ac off</button>
+</div>
+
+</div>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<!-- <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
+<script src={{ url_for('static', filename='main.js') }}></script>
+
+</body>
+</html>
