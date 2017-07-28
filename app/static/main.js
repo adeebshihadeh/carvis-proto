@@ -12,6 +12,14 @@ $("button").click(function() {
   sendCommand($(this).attr('id').split("btn-")[1]);
 });
 
+$("#btn-update").click(function() {
+  bootbox.confirm("update?", function(e) {
+    if (e) {
+      $.post("/update");
+      location.reload(true);
+    }
+  });
+});
 
 function sendCommand(cmd) {
   $.post("/command", {"cmd": cmd});

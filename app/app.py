@@ -1,5 +1,6 @@
 import time
 import requests
+import os
 import cmds
 
 from flask import Flask, render_template, request, jsonify
@@ -18,6 +19,11 @@ def command():
     print request.form.get('cmd')
     cmds.handleCmd(request.form.get('cmd'))
   return "ok"
+
+@app.route('/update', methods=['GET', 'POST'])
+def update():
+  os.system("git pull")
+  return render_template('index.html')
 
 
 if __name__ == '__main__':
