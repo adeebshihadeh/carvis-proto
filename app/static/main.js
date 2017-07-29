@@ -21,6 +21,13 @@ $("#btn-update").click(function() {
   });
 });
 
+window.setInterval(function() {
+  console.log("interval");
+  var now = new Date();
+  $("#display-time").text(now.toLocaleTimeString());
+  // console.log(now.getHours() + ":" + now.getMinutes());
+}, 800);
+
 function sendCommand(cmd) {
   $.post("/command", {"cmd": cmd});
 }

@@ -1,0 +1,25 @@
+
+## initial kiosk setup
+
+https://obrienlabs.net/setup-raspberry-pi-kiosk-chromium/
+
+## rotate
+
+rotate display:
+add `display_rotate=1` (3 for 270) to /boot/config.txt
+
+rotate input:
+
+
+## prevent screensaver/sleeping
+
+https://www.bitpi.co/2015/02/14/prevent-raspberry-pi-from-sleeping/
+
+## custom splash screen
+
+## remove cursor
+
+unclutter works sometimes
+
+also this
+https://raspberrypi.stackexchange.com/questions/53127/how-to-permanently-hide-mouse-pointer-or-cursor-on-raspberry-pi
