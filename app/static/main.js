@@ -24,9 +24,8 @@ $("#btn-update").click(function() {
 window.setInterval(function() {
   console.log("interval");
   var now = new Date();
-  $("#display-time").text(now.toLocaleTimeString());
-  // console.log(now.getHours() + ":" + now.getMinutes());
-}, 800);
+  $("#display-time").text(now.toLocaleTimeString().replace(/:\d{2}\s/,' '));
+}, 2000); 
 
 function sendCommand(cmd) {
   $.post("/command", {"cmd": cmd});
