@@ -7,6 +7,16 @@
     - better touch interaction (hover, active, etc.)
 */
 
+
+function sendCommand(cmd) {
+  $.post("/command", {"cmd": cmd});
+}
+
+function updateTime() {
+  var now = new Date();
+  $("#display-time").text(now.toLocaleTimeString().replace(/:\d{2}\s/,' '));
+}
+
 // auto bind all buttons
 $("button").click(function() {
   sendCommand($(this).attr('id').split("btn-")[1]);
@@ -22,10 +32,9 @@ $("#btn-update").click(function() {
 });
 
 window.setInterval(function() {
-  var now = new Date();
-  $("#display-time").text(now.toLocaleTimeString().replace(/:\d{2}\s/,' '));
-}, 2000); 
+  updateTime()
+}, 2000);
 
-function sendCommand(cmd) {
-  $.post("/command", {"cmd": cmd});
-}
+$(document).ready(function() {
+  updateTime();
+});
