@@ -1,6 +1,7 @@
 import sys
 from threading import  Thread
 import raspiupshat
+import time
 
 raspiupshat.init()
 
@@ -17,6 +18,9 @@ def check():
     if getCharge() < threshold_charge:
       print "system shutting down. battery below %d" % threshold_charge
       os.system("sudo shutdown")
+    else:
+      print "charge level: " + str(getCharge())
+    time.sleep(1)
 
 def init():
   try:
