@@ -17,6 +17,20 @@ https://www.bitpi.co/2015/02/14/prevent-raspberry-pi-from-sleeping/
 
 ## custom splash screen
 
+TODO
+
+## ups
+
+TODO
+
+idea: detect when display loses power and do safe shut off. use portable usb charger with passthrough as battery
+
+## bluetooth streaming
+
+TODO
+
+dumb speaker: https://github.com/lukasjapan/bt-speaker
+
 ## remove cursor
 
 unclutter works sometimes

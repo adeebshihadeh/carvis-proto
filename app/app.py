@@ -2,6 +2,7 @@ import time
 import requests
 import os
 import cmds
+import ups
 
 from flask import Flask, render_template, request, jsonify
 
@@ -27,4 +28,5 @@ def update():
 
 
 if __name__ == '__main__':
+  ups.init()
   app.run(debug=True, host= 'localhost')

@@ -21,6 +21,22 @@ $("#btn-update").click(function() {
   });
 });
 
+$("#toggle-fullscreen").click(function() {
+  var element = document.body;
+
+  var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+  if (requestMethod) { // Native full screen.
+    requestMethod.call(element);
+  } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+    var wscript = new ActiveXObject("WScript.Shell");
+    if (wscript !== null) {
+      script.SendKeys("{F11}");
+    }
+  }
+
+});
+
 window.setInterval(function() {
   var now = new Date();
   $("#display-time").text(now.toLocaleTimeString().replace(/:\d{2}\s/,' '));
