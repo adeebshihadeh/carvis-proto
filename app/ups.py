@@ -1,5 +1,5 @@
 import sys
-import thread
+from threading import  Thread
 import raspiupshat
 
 raspiupshat.init()
@@ -20,7 +20,9 @@ def check():
 
 def init():
   try:
-    thread.start_new_thread(check)
+    thread_ = Thread(target = check)
+    thread_.start()
+    print "started ups thread"
   except Exception as e:
-    print "failed to create thread"
+    print "failed to create ups thread"
     raise
