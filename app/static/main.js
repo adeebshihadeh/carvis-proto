@@ -18,8 +18,24 @@ function updateTime() {
 }
 
 // auto bind all buttons
-$("button").click(function() {
+$("[id^=btn").click(function() {
   sendCommand($(this).attr('id').split("btn-")[1]);
+});
+
+
+// handle audio stuff 
+$("[id^=audio").click(function() {
+  var id = $(this).attr('id');
+  if(id == "audio-playpause" ) {
+    console.log("audio: playpause");
+    
+  } else if (id == "audio-previous") {
+    console.log("audio: previous");
+  } else if (id == "audio-next") {
+    console.log("audio: next");
+  } else {
+    console.log("unimplemented audio function: " + id);
+  }
 });
 
 $("#btn-update").click(function() {
