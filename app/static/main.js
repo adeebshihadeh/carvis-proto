@@ -3,13 +3,13 @@ var socket = io.connect("http://localhost:8080");
 socket.on('connect', function() {
   console.log("socket connected");
 
-  $("#server-status").text("server connected");
+  $("#server-status").text("connected");
 });
 
 socket.on('disconnect', function() {
   console.log("socket disconnected");
 
-  $("#server-status").text("server disconnected");
+  $("#server-status").text("disconnected");
 });
 
 function sendCommand(cmd) {
