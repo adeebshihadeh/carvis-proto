@@ -41,10 +41,16 @@ $("[id^=audio").click(function() {
   }
 });
 
+$("#volume-toggle").click(function() {
+  $("#volume-toggle-off").toggle();
+  $("#volume-toggle-on").toggle();
+});
+
 window.setInterval(function() {
   updateTime()
 }, 2000);
 
 $(document).ready(function() {
   updateTime();
+  $("#volume-toggle-off").hide();
 });

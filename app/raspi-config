@@ -10,12 +10,21 @@ add `display_rotate=1` (3 for 270) to /boot/config.txt
 
 rotate input:
 
+TODO
 
 ## prevent screensaver/sleeping
 
 https://www.bitpi.co/2015/02/14/prevent-raspberry-pi-from-sleeping/
 
 ## custom splash screen
+
+TODO
+
+## bluetooth streaming
+
+TODO
+
+dumb speaker: https://github.com/lukasjapan/bt-speaker
 
 ## remove cursor
 
