@@ -1,5 +1,5 @@
 
-## initial kiosk setup
+## kiosk mode
 
 https://obrienlabs.net/setup-raspberry-pi-kiosk-chromium/
 
@@ -10,11 +10,22 @@ add `display_rotate=1` (3 for 270) to /boot/config.txt
 
 rotate input:
 
-TODO
+https://wiki.ubuntu.com/X/InputCoordinateTransformation
+
+scripts/rpi/startup.sh
 
 ## prevent screensaver/sleeping
 
 https://www.bitpi.co/2015/02/14/prevent-raspberry-pi-from-sleeping/
+
+## auto startup
+
+https://www.cyberciti.biz/tips/linux-how-to-run-a-command-when-boots-up.html
+
+add to ~/.config/lxsession/LXDE-pi/autostart:
+
+@sh /home/pi/carvis-proto/app/scripts/rpi/startup.sh
+
 
 ## custom splash screen
 
