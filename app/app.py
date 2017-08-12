@@ -5,9 +5,10 @@ import cmds
 import audio
 
 from flask import Flask, render_template, request, jsonify
+from flask_socketio import SocketIO
 
 app = Flask(__name__)
-
+socketio = SocketIO(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -21,18 +22,12 @@ def command():
     cmds.handleCmd(request.form.get('cmd'))
   return "ok"
 
-@app.route('/update', methods=['POST'])
-def update():
-  os.system("git pull")
-  return render_template('index.html')
+@socketio.on('audio')
+def handle_audio(message):
+  audio.handle_request(message)
+  print "audio message: " + message
 
-
-@app.route('/audio', methods=['POST'])
-def handle_audio():
-  audio.handle_request()
-  request.form.get('cmd')
-  return "ok"
 
 
 if __name__ == '__main__':
-  app.run(debug=True, host= 'localhost', port=8080)
+  socketio.run(app, host='localhost', debug=True, port=8080)

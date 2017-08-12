@@ -1,12 +1,16 @@
+var socket = io.connect("http://localhost:8080");
 
+socket.on('connect', function() {
+  console.log("socket connected");
 
-/*
-  TODO
-    - auto retrieve http port
-    - detect server status
-    - better touch interaction (hover, active, etc.)
-*/
+  $("#server-status").text("server connected");
+});
 
+socket.on('disconnect', function() {
+  console.log("socket disconnected");
+
+  $("#server-status").text("server disconnected");
+});
 
 function sendCommand(cmd) {
   $.post("/command", {"cmd": cmd});
@@ -27,24 +31,14 @@ $("[id^=btn").click(function() {
 $("[id^=audio").click(function() {
   var id = $(this).attr('id');
   if(id == "audio-playpause" ) {
-    console.log("audio: playpause");
-    
+    socket.emit("audio", "playpause");
   } else if (id == "audio-previous") {
-    console.log("audio: previous");
+    socket.emit("audio", "previous");
   } else if (id == "audio-next") {
-    console.log("audio: next");
+    socket.emit("audio", "next");
   } else {
     console.log("unimplemented audio function: " + id);
   }
-});
-
-$("#btn-update").click(function() {
-  bootbox.confirm("update?", function(e) {
-    if (e) {
-      $.post("/update");
-      location.reload(true);
-    }
-  });
 });
 
 window.setInterval(function() {
