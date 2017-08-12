@@ -47,6 +47,10 @@ $("#volume-toggle").click(function() {
   socket.emit("system", "mute-" + ($("#volume-toggle-on").is(":visible") ? "off" : "on"));
 });
 
+$("*").bind("touchstart", function() {
+  $(this).css("cursor", "none");
+});
+
 window.setInterval(function() {
   updateTime()
 }, 2000);
