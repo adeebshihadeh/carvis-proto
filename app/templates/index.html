@@ -3,14 +3,36 @@
 <head>
   <title>carvis</title>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href={{ url_for('static', filename='css/bootstrap.min.css') }}>
+  <link rel="stylesheet" href={{ url_for('static', filename='css/font-awesome/css/font-awesome.min.css') }}>
 
+
+  <style type="text/css"> 
+    .nav-item {
+      padding: 0px 12px;
+    }
+  </style>
 </head>
 <body>
 
-<nav class="navbar navbar-light bg-faded">
-  <a class="navbar-brand" style="font-size: 2.5em;">carvis</a>
+<nav class="navbar navbar-inverse bg-primary navbar-toggleable-xl" style="font-size: 2rem;">
+
+  <div class="container" style="margin: 0">
+    <a class="navbar-brand" id="title" style="font-size: 1em;">carvis</a>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="nav-item pull-xs-right" id="bluetooth-status">
+          <i class="fa fa-mobile" aria-hidden="true"></i>
+        </li>
+
+        <li class="nav-item pull-xs-right" id="settings-icon">
+          <i class="fa fa-cog"></i>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
+
 
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
@@ -23,29 +45,60 @@
 
 <button class="btn btn-success btn-lg" id="btn-roll-up">roll up</button>
 
-
 </br>
+
+</div>
+
+
+
+
+<div id="climate-control">
+
 <div style="margin: 15px 0px;" class="btn-group btn-group-lg">
   <button class="btn btn-secondary btn-lg" id="btn-defrost">defrost</button>
   <button class="btn btn-secondary btn-lg" id="btn-max-cool">max cool</button>
   <button class="btn btn-secondary btn-lg" id="btn-ac-off">ac off</button>
 </div>
-</br>
 
-<button class="btn btn-lg btn-primary" id="btn-update">update</button>
+</div>
+
+<div class="audio-control" style="height: 150px; width: 100%; text-align: center; background-color: ">
+
+<div id="audio-control" class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4" id="audio-primary-info" style="text-align: center;">song title</h1>
+    <p class="lead">secondary</p>
+  </div>
+  <button id="audio-previous" class="btn btn-lg btn-primary"><<</button>
+  <button id="audio-playpause" class="btn btn-lg btn-primary"><i class="fa fa-pause"></i></button>
+  <button id="audio-next" class="btn btn-lg btn-primary">>></button>
+  <!-- maybe add album art? -->
+</div>
+
 
 </div>
 
 
 
+<!-- import stuff -->
+{% include 'bluetooth.html' %}
+{% include 'settings.html' %}
+
+
+
+
 <!-- js stuff -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js" crossorigin="anonymous"></script>
 
+<!-- external dependencies -->
+<script src={{ url_for('static', filename='lib/jquery.min.js') }}></script>
+<script src={{ url_for('static', filename='lib/tether.min.js') }}></script>
+<script src={{ url_for('static', filename='lib/bootstrap.min.js') }}></script>
+<script src={{ url_for('static', filename='lib/bootbox.min.js') }}></script>
 
+<!-- includes -->
 <script src={{ url_for('static', filename='main.js') }}></script>
+<script src={{ url_for('static', filename='bluetooth.js') }}></script>
+<script src={{ url_for('static', filename='settings.js') }}></script>
 
 </body>
 </html>
