@@ -22,11 +22,16 @@ def command():
     cmds.handleCmd(request.form.get('cmd'))
   return "ok"
 
+
+@socketio.on('system')
+def handle_audio(message):
+  cmds.handleCmd(message)
+  print "system message: " + message
+
 @socketio.on('audio')
 def handle_audio(message):
   audio.handle_request(message)
   print "audio message: " + message
-
 
 
 if __name__ == '__main__':

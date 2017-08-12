@@ -44,6 +44,7 @@ $("[id^=audio").click(function() {
 $("#volume-toggle").click(function() {
   $("#volume-toggle-off").toggle();
   $("#volume-toggle-on").toggle();
+  socket.emit("system", "mute-" + ($("#volume-toggle-on").is(":visible") ? "off" : "on"));
 });
 
 window.setInterval(function() {

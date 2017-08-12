@@ -7,5 +7,10 @@ def handleCmd(cmd):
       os.system("qdbus org.mpris.MediaPlayer2.spotify / org.freedesktop.MediaPlayer2.OpenUri https://open.spotify.com/track/7kClqlbpmpZmGMimROkvh6")
     elif _platform == "darwin":
       os.system("spotify play uri https://open.spotify.com/track/7kClqlbpmpZmGMimROkvh6")
-    
     print "roll up!"
+  elif "mute" in cmd:
+    if "off" in cmd:
+      print "unmuting volume"
+    else:  
+      print "muting volume"
+    pass
