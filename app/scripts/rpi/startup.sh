@@ -4,8 +4,13 @@ xinput --set-prop 'ILITEK ILITEK Multi-Touch' 'Coordinate Transformation Matrix'
 
 python /home/pi/carvis-proto/app/app.py &
 
-sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' /home/pi/.config/chromium/Default/Preferences &
-sed -i 's/"exit_type":"Crashed"/"exit_type":"Normal"/' /home/pi/.config/chromium/Default/Preferences &
+xset s noblank
+xset s off
+xset -dpms
+
+
+sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' /home/pi/.config/chromium/Default/Preferences
+sed -i 's/"exit_type":"Crashed"/"exit_type":"Normal"/' /home/pi/.config/chromium/Default/Preferences
 
 chromium-browser --noerrdialogs http://localhost:8080 &
 #chromium-browser --noerrdialogs --kiosk http://localhost:8080 &
