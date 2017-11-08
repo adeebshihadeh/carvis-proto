@@ -9,8 +9,12 @@ class Core:
   update_function = None
 
   def get_state(self):
+    state = {}
     for module in self.modules:
+      state[module.__class__.__name__] = module.get_state()
       print module.get_state()
+    return state
+
 
   def set_update_function(self, func):
     self.update_function = func

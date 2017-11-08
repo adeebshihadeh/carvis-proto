@@ -12,13 +12,37 @@ socket.on('disconnect', function() {
   $("#server-status").text("disconnected");
 });
 
-socket.on('msg', function() {
+socket.on('msg', function(msg) {
   console.log("new sock msg");
+  msg = JSON.parse(msg);
+
+  console.log(msg);
+  
+  if (msg.Audio) {
+    if (msg.Audio.song.Album) {
+      // $("#audio-primary-info").text(msg.Audio.song.title);
+      // $("#audio-secondary-info").text(msg.Audio.song.artist);
+      $("#audio-primary-info").text("song");
+      $("#audio-secondary-info").text("playing");
+    } else {
+      $("#audio-primary-info").text("song");
+      $("#audio-secondary-info").text("not playing");
+    }
+
+    $("#audio-playpause").html('<i class="fa fa-' + (msg.Audio.paused ? 'play' : 'pause') + '"></i>');
+  } else {
+    alert("msg not audio")
+  }
 });
 
 function updateTime() {
   var now = new Date();
   $("#display-time").text(now.toLocaleTimeString().replace(/:\d{2}\s/,' '));
+}
+
+
+function sendCommand(module, cmd) {
+  socket.emit("msg", JSON.stringify({module: cmd}));
 }
 
 // auto bind all buttons
@@ -31,11 +55,11 @@ $("[id^=btn").click(function() {
 $("[id^=audio").click(function() {
   var id = $(this).attr('id');
   if(id == "audio-playpause" ) {
-    socket.emit("audio", "playpause");
+    sendCommand("audio", $("#audio-playpause").html().includes("pause") ? "pause" : "play");
   } else if (id == "audio-previous") {
-    socket.emit("audio", "previous");
+    sendCommand("audio", "previous");
   } else if (id == "audio-next") {
-    socket.emit("audio", "next");
+    sendCommand("audio", "next");
   } else {
     console.log("unimplemented audio function: " + id);
   }

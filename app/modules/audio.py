@@ -3,7 +3,7 @@ from subprocess import call
 
 class Audio:
   playing = False
-  sp_cmd = "../sp"
+  sp_cmd = "echo"
 
   def get_state(self):
     state = {

@@ -1,5 +1,5 @@
-import time
 import requests
+import json
 import os
 import core
 
@@ -19,6 +19,7 @@ def home():
 def handle_msg(message):
   print "new msg: " + message
   core.handle_msg(message)
+  update(json.dumps(core.get_state()))
 
 
 def update(state):
