@@ -26,5 +26,6 @@ def update(state):
   socketio.emit("msg", state)
 core.set_update_function(update)
 
+
 if __name__ == '__main__':
   socketio.run(app, host='localhost', debug=True, port=8080)

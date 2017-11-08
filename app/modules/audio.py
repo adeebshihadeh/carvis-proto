@@ -7,7 +7,7 @@ class Audio:
 
   def get_state(self):
     state = {
-      "paused": False,
+      "paused": True,
       "song": {}
     }
     return state
