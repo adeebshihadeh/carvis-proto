@@ -69,19 +69,7 @@
 </div>
 
 <div class="audio-control" style="height: 150px; width: 100%; text-align: center; background-color: ">
-
-<div id="audio-control" class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4" id="audio-primary-info" style="text-align: center;">song title</h1>
-    <p class="lead">secondary</p>
-  </div>
-  <button id="audio-previous" class="btn btn-lg btn-primary"><<</button>
-  <button id="audio-playpause" class="btn btn-lg btn-primary"><i class="fa fa-pause"></i></button>
-  <button id="audio-next" class="btn btn-lg btn-primary">>></button>
-  <!-- maybe add album art? -->
-</div>
-
-
+{% include 'music.html' %}
 </div>
 
 
@@ -95,13 +83,13 @@
 
 <!-- js stuff -->
 
-<!-- external dependencies -->
+<!-- dependencies -->
 <script src={{ url_for('static', filename='lib/jquery.min.js') }}></script>
 <script src={{ url_for('static', filename='lib/tether.min.js') }}></script>
 <script src={{ url_for('static', filename='lib/bootstrap.min.js') }}></script>
 <script src={{ url_for('static', filename='lib/bootbox.min.js') }}></script>
 <script src={{ url_for('static', filename='lib/socket.io.js') }}></script>
-<!-- includes -->
+
 <script src={{ url_for('static', filename='main.js') }}></script>
 <script src={{ url_for('static', filename='bluetooth.js') }}></script>
 <script src={{ url_for('static', filename='settings.js') }}></script>

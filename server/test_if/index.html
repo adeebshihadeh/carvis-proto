@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <script type="text/javascript" src="socket.io.slim.js"></script>
+
+  <title>server test interface</title>
+</head>
+<body>
+<h1 style="text-align: center;">server test interface</h1>
+
+<p></p>
+
+<script type="text/javascript">
+  var socket = io('http://localhost:8080/');
+  socket.on('connect', function(){
+    console.log("connected")
+  });
+  socket.on('event', function(data){
+    console.log("event")
+    console.log(data)
+  });
+  socket.on('disconnect', function(){
+
+  });
+</script>
+
+</body>
+</html>
