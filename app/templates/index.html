@@ -6,7 +6,6 @@
   <link rel="stylesheet" href={{ url_for('static', filename='css/bootstrap.min.css') }}>
   <link rel="stylesheet" href={{ url_for('static', filename='css/font-awesome/css/font-awesome.min.css') }}>
 
-
   <style type="text/css"> 
     .nav-item {
       padding: 0px 20px;
@@ -25,7 +24,6 @@
 <body>
 
 <nav class="navbar navbar-inverse bg-primary navbar-toggleable-xl" style="font-size: 2rem;">
-
   <div class="container" style="margin: 0">
     <a class="navbar-brand" id="title" style="font-size: 1em;">carvis</a>
     <div class="navbar-collapse collapse">
@@ -53,6 +51,9 @@
 </div>
 
 
+
+{% include 'map.html' %}
+
 <div class="content" style="padding: 10px;">
 
 <button class="btn btn-success btn-lg" id="btn-roll-up">roll up</button>
@@ -64,21 +65,22 @@
 
 
 
-<div id="climate-control">
+<div id="climate-control" style="background-color: #2E2E2E; height: 100px; line-height: 2;">
 {% include 'climatecontrol.html' %}
 </div>
 
-<div class="audio-control" style="height: 150px; width: 100%; text-align: center; background-color: ">
+<div class="audio-control" style="width: 100%; text-align: center;">
 {% include 'music.html' %}
 </div>
 
+<div class="phone" style=" width: 100%; text-align: center;">
+{% include 'phone.html' %}
+</div>
 
 
 <!-- import stuff -->
 {% include 'bluetooth.html' %}
 {% include 'settings.html' %}
-
-
 
 
 <!-- js stuff -->
@@ -93,6 +95,8 @@
 <script src={{ url_for('static', filename='main.js') }}></script>
 <script src={{ url_for('static', filename='bluetooth.js') }}></script>
 <script src={{ url_for('static', filename='settings.js') }}></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOKxTuQAuqxxUK3aeqeuKHpwGBvqk4JHM&callback=map"></script>
 
 </body>
 </html>

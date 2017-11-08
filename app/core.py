@@ -1,6 +1,5 @@
 from modules import audio
 
-
 class Core:
   modules = []
   update_function = None
@@ -11,7 +10,6 @@ class Core:
       state[module.__class__.__name__] = module.get_state()
       print module.get_state()
     return state
-
 
   def set_update_function(self, func):
     self.update_function = func

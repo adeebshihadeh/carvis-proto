@@ -40,16 +40,9 @@ function updateTime() {
   $("#display-time").text(now.toLocaleTimeString().replace(/:\d{2}\s/,' '));
 }
 
-
 function sendCommand(module, cmd) {
   socket.emit("msg", JSON.stringify({module: cmd}));
 }
-
-// auto bind all buttons
-$("[id^=btn").click(function() {
-  sendCommand($(this).attr('id').split("btn-")[1]);
-});
-
 
 // handle audio stuff 
 $("[id^=audio").click(function() {
@@ -82,4 +75,14 @@ window.setInterval(function() {
 $(document).ready(function() {
   updateTime();
   $("#volume-toggle-off").hide();
+
 });
+
+
+function map() {
+  var mapProp= {
+    center:new google.maps.LatLng(37.7749, -122.4194),
+    zoom: 12,
+  };
+  var map=new google.maps.Map(document.getElementById("map"),mapProp);
+}
