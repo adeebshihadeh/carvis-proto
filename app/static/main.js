@@ -12,9 +12,9 @@ socket.on('disconnect', function() {
   $("#server-status").text("disconnected");
 });
 
-function sendCommand(cmd) {
-  $.post("/command", {"cmd": cmd});
-}
+socket.on('msg', function() {
+  console.log("new sock msg");
+});
 
 function updateTime() {
   var now = new Date();

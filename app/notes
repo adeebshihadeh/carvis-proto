@@ -1,11 +1,8 @@
-
-
 # TODO
 
 * custom splash screen
 * auto rotate screen & touch input
 * virtual keyboard
-* 
 
 ## car replacement stuff
 
@@ -30,6 +27,7 @@ climate control
 steering wheel buttons
 
 * voice button
+* next/prev
 
 other
 
@@ -43,20 +41,13 @@ other
 
 # dependencies
 
-## spotify-remote
+## spotify
 
-https://github.com/chrippa/spotify-remote
-
-`pip install spotify-remote`
+spotify and [sp](https://gist.github.com/wandernauta/6800547) need to be installed
 
 ## flask
 
 `pip install Flask`
-
-
-# ups solution
-
-TODO
 
 # config
 

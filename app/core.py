@@ -2,9 +2,6 @@
 
 
 from modules import audio
-from modules import bluetooth
-
-
 
 
 class Core:
@@ -35,4 +32,3 @@ class Core:
 
 core = Core()
 core.register_module(audio.Audio())
-core.register_module(bluetooth.Bluetooth())
