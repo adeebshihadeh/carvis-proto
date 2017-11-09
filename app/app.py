@@ -27,7 +27,6 @@ def handle_msg(msg):
 
 def update(state):
   socketio.emit("msg", state)
-  print "emitted new state\n\n"
 core.set_update_function(update)
 
 def loop():
