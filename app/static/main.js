@@ -19,11 +19,11 @@ socket.on('msg', function(msg) {
   console.log(msg);
   
   if (msg.Audio) {
-    if (msg.Audio.song.Album) {
-      // $("#audio-primary-info").text(msg.Audio.song.title);
-      // $("#audio-secondary-info").text(msg.Audio.song.artist);
-      $("#audio-primary-info").text("song");
-      $("#audio-secondary-info").text("playing");
+    if (msg.Audio.song.title) {
+      $("#audio-primary-info").text(msg.Audio.song.title);
+      $("#audio-secondary-info").text(msg.Audio.song.artist);
+      // $("#audio-primary-info").text("song");
+      // $("#audio-secondary-info").text("playing");
     } else {
       $("#audio-primary-info").text("song");
       $("#audio-secondary-info").text("not playing");
@@ -41,7 +41,7 @@ function updateTime() {
 }
 
 function sendCommand(module, cmd) {
-  socket.emit("msg", JSON.stringify({module: cmd}));
+  socket.emit("cmd", JSON.stringify({module: cmd}));
 }
 
 // handle audio stuff 

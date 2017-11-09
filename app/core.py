@@ -8,12 +8,10 @@ class Core:
     state = {}
     for module in self.modules:
       state[module.__class__.__name__] = module.get_state()
-      print module.get_state()
     return state
 
   def set_update_function(self, func):
     self.update_function = func
-    func("")
 
   def register_module(self, module):
     self.modules.append(module)
