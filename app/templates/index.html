@@ -9,8 +9,11 @@
   <link rel="stylesheet" href={{ url_for('static', filename='css/font-awesome/css/font-awesome.min.css') }}>
 
   <style type="text/css"> 
-    .nav-item {
-      padding: 0px 20px;
+    body {
+      position: fixed;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
     }
     body, div {
       -webkit-touch-callout: none;
@@ -20,6 +23,9 @@
       -ms-user-select: none;
       -o-user-select: none;
       user-select: none;
+    }
+    .nav-item {
+      padding: 0px 20px;
     }
     .no-margin {
       margin: 0;
