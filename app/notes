@@ -1,7 +1,6 @@
 # TODO
 
 * custom splash screen
-* auto rotate screen & touch input
 * virtual keyboard
 
 ## car replacement stuff
@@ -37,17 +36,6 @@ other
 * emergency flashers
 * passenger airbag indicator
 * off road button?
-
-
-# dependencies
-
-## spotify
-
-spotify and [sp](https://gist.github.com/wandernauta/6800547) need to be installed
-
-## flask
-
-`pip install Flask`
 
 # config
 
