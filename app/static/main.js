@@ -22,11 +22,11 @@ socket.on('msg', function(msg) {
     if (msg.Audio.song.title) {
       $("#audio-primary-info").text(msg.Audio.song.title);
       $("#audio-secondary-info").text(msg.Audio.song.artist);
-      // $("#audio-primary-info").text("song");
-      // $("#audio-secondary-info").text("playing");
+      $("#audio-album-art").show().attr("src", msg.Audio.song.artUrl);
     } else {
       $("#audio-primary-info").text("song");
       $("#audio-secondary-info").text("not playing");
+      $("#audio-album-art").hide();
     }
 
     $("#audio-playpause").html('<i class="fa fa-' + (msg.Audio.paused ? 'play' : 'pause') + '"></i>');
