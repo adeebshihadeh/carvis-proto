@@ -76,6 +76,11 @@ $(document).ready(function() {
   updateTime();
   $("#volume-toggle-off").hide();
 
+  // for debugging
+  if (screen.height > screen.width) {
+    $("body").css("position", "fixed");
+    $("body").css("overflow", "hidden");
+  }
 });
 
 
