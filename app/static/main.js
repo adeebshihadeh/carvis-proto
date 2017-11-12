@@ -30,9 +30,12 @@ socket.on('msg', function(msg) {
     }
 
     $("#audio-playpause").html('<i class="fa fa-' + (msg.Audio.paused ? 'play' : 'pause') + '"></i>');
-  } else {
-    alert("msg not audio")
   }
+
+  if (msg.Connectivity) {
+    $("#display-wifi-status").css("color", msg.Connectivity.internet_connected ? "blue" : "red");
+  }
+
 });
 
 function updateTime() {

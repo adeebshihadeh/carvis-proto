@@ -1,4 +1,5 @@
 from modules import audio
+from modules import connectivity
 
 class Core:
   modules = []
@@ -29,3 +30,4 @@ class Core:
 
 core = Core()
 core.register_module(audio.Audio())
+core.register_module(connectivity.Connectivity())
