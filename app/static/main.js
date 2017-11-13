@@ -20,13 +20,15 @@ socket.on('msg', function(msg) {
   
   if (msg.Audio) {
     if (msg.Audio.song.title) {
+      $("#audio-control").children().show();
+      $("#audio-no-music").hide();
+
       $("#audio-primary-info").text(msg.Audio.song.title);
       $("#audio-secondary-info").text(msg.Audio.song.artist);
       $("#audio-album-art").show().attr("src", msg.Audio.song.artUrl);
     } else {
-      $("#audio-primary-info").text("song");
-      $("#audio-secondary-info").text("not playing");
-      $("#audio-album-art").hide();
+      $("#audio-control").children().hide();
+      $("#audio-no-music").show();
     }
 
     $("#audio-playpause").html('<i class="fa fa-' + (msg.Audio.paused ? 'play' : 'pause') + '"></i>');
@@ -78,6 +80,9 @@ window.setInterval(function() {
 $(document).ready(function() {
   updateTime();
   $("#volume-toggle-off").hide();
+
+  $("#audio-control").children().hide();
+  $("#audio-no-music").show();
 
   // for debugging
   if (screen.height > screen.width) {
