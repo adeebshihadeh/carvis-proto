@@ -8,7 +8,7 @@
 
   <div class="row" style="padding: 0 25px;">
     <div class="col-3">
-      <img src="" id="audio-album-art" height="200px" width="200px">
+      <img src={{ url_for('static', filename='music.png') }} onerror="this.src={{ url_for('static', filename='music.png') }}" id="audio-album-art" height="200px" width="200px">
     </div>
 
     <div class="col-9">
