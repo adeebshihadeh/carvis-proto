@@ -35,7 +35,7 @@ socket.on('msg', function(msg) {
   }
 
   if (msg.Connectivity) {
-    $("#display-wifi-status").css("color", msg.Connectivity.internet_connected ? "blue" : "red");
+    $("#display-wifi-status").css("color", msg.Connectivity.internet_connected ? "white" : "red");
   }
 
 });
