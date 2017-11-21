@@ -20,14 +20,14 @@ socket.on('msg', function(msg) {
   
   if (msg.Audio) {
     if (msg.Audio.song.title) {
-      $("#audio-control").children().show();
+      $("#audio-player").show();
       $("#audio-no-music").hide();
 
       $("#audio-primary-info").text(msg.Audio.song.title);
       $("#audio-secondary-info").text(msg.Audio.song.artist);
       $("#audio-album-art").show().attr("src", msg.Audio.song.artUrl);
     } else {
-      $("#audio-control").children().hide();
+      $("#audio-player").hide();
       $("#audio-no-music").show();
     }
 
@@ -81,7 +81,7 @@ $(document).ready(function() {
   updateTime();
   $("#volume-toggle-off").hide();
 
-  $("#audio-control").children().hide();
+  $("#audio-player").hide();
   $("#audio-no-music").show();
 
   // for debugging

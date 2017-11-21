@@ -21,5 +21,8 @@ class Connectivity:
        pass
     return False
 
+  def handle_input(self, input):
+    return None
+
   def __init__(self):
     return None

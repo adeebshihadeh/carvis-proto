@@ -24,6 +24,8 @@ https://www.spotify.com/us/download/linux/
 
 ## clone this repo
 
+clone to home dir
+
 `git clone https://github.com/quillford/carvis-proto.git`
 
 ## startup scripts
